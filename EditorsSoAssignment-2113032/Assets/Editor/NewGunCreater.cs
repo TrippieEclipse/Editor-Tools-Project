@@ -39,8 +39,6 @@ public class NewGunCreater : EditorWindow
     public List<GameObject> handleList = new List<GameObject>();
 
 
-    static string clearBarrelArrayindex = "Index To Destroy";
-
     string weaponName = null;
 
 
@@ -58,7 +56,7 @@ public class NewGunCreater : EditorWindow
 
     private void OnGUI()
     {
-        /*
+        
 
         #region Weapon Part Selection
 
@@ -93,7 +91,7 @@ public class NewGunCreater : EditorWindow
 
         #endregion
 
-        */
+        
 
         #region Adding/Taking Away From List
 

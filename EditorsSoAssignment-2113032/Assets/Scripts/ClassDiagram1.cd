@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BodyConectionNodes">
+    <Position X="17.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BodyConectionNodes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GunSpawner">
+    <Position X="19" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GunSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScriptableWeapon">
+    <Position X="15.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAQAAAAAAAAACAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\ScriptableWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
