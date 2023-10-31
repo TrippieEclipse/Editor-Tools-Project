@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+
+
 public enum BodyPartsEnum
 {
     LongBody,
@@ -31,9 +34,9 @@ public class NewGunCreater : EditorWindow
     public HandlePartsEnum handleEnumChoice;
 
 
-    public static List<GameObject> bodyList = new List<GameObject>();
-    public static List<GameObject> barrelList = new List<GameObject>();
-    public static List<GameObject> handleList = new List<GameObject>();
+    public List<GameObject> bodyList = new List<GameObject>();
+    public List<GameObject> barrelList = new List<GameObject>();
+    public List<GameObject> handleList = new List<GameObject>();
 
 
     static string clearBarrelArrayindex = "Index To Destroy";
@@ -55,6 +58,7 @@ public class NewGunCreater : EditorWindow
 
     private void OnGUI()
     {
+        /*
 
         #region Weapon Part Selection
 
@@ -65,15 +69,15 @@ public class NewGunCreater : EditorWindow
 
         EditorGUILayout.Space();
 
-        bodyEnumChoice = (BodyPartsEnum)EditorGUILayout.EnumPopup("Choose Body Part -->", bodyEnumChoice);
+        bodyEnumChoice = (BodyPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Body Part -->","Select The Body You Would Like For Your Weapon"), bodyEnumChoice);
 
         EditorGUILayout.Space();
 
-        barrelEnumChoice = (BarrelPartsEnum)EditorGUILayout.EnumPopup("Choose Barrel Part -->", barrelEnumChoice);
+        barrelEnumChoice = (BarrelPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Barrel Part -->", "Select The Barrel You Would Like For Your Weapon"), barrelEnumChoice);
 
         EditorGUILayout.Space();
 
-        handleEnumChoice = (HandlePartsEnum)EditorGUILayout.EnumPopup("Choose Handle Part -->", handleEnumChoice);
+        handleEnumChoice = (HandlePartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Handle Part -->", "Select The Handle You Would Like For Your Weapon"), handleEnumChoice);
 
 
         if (GUILayout.Button("Create"))
@@ -89,6 +93,7 @@ public class NewGunCreater : EditorWindow
 
         #endregion
 
+        */
 
         #region Adding/Taking Away From List
 
@@ -136,7 +141,7 @@ public class NewGunCreater : EditorWindow
             bodyList.Clear();
         }
 
-        EditorGUILayout.Space(); EditorGUILayout.Space(); EditorGUILayout.Space();
+        EditorGUILayout.Space(5); 
         #endregion
 
         #region Barrel
@@ -181,7 +186,7 @@ public class NewGunCreater : EditorWindow
             barrelList.Clear();
         }
 
-        EditorGUILayout.Space(); EditorGUILayout.Space(); EditorGUILayout.Space();
+        EditorGUILayout.Space(5); 
         #endregion
 
         #region Handle
@@ -231,6 +236,19 @@ public class NewGunCreater : EditorWindow
 
         #endregion
 
+
+        EditorGUILayout.Space(5);
+
+
+        ScriptableObject target = this;
+        SerializedObject so = new SerializedObject(target);
+        SerializedProperty stringsProperty = so.FindProperty("bodyList");
+
+        EditorGUILayout.PropertyField(stringsProperty, true);
+        so.ApplyModifiedProperties();
+
+
+
     }
     public void CreateWeaponSO() 
     {
@@ -257,6 +275,17 @@ public class NewGunCreater : EditorWindow
         { 
                 Debug.Log("No Items in Barrel list");
         }
+        
+    }
+
+    private void OnEnable()
+    {
+        
+    }
+
+
+    private void OnDisable()
+    {
         
     }
 

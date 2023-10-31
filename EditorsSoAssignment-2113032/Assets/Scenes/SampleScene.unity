@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143836a4af6b84444bbb9b3ae22144eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSO: {fileID: 11400000, guid: e0fc825f3242bf743a5a63213dda4b71, type: 2}
+  weaponSO: {fileID: 11400000, guid: 4d6dec6a7e972ab4da1644941ce0b463, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
