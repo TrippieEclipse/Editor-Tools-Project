@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eadb33c9b92e394e8ad5d3f129b7bb8, type: 3}
-  m_Name: ShortyLongNose
+  m_Name: The Chieff
   m_EditorClassIdentifier: 
-  weaponName: ShortyLongNose
-  body: {fileID: 1282521334820513805, guid: c7ee2c5031b0e7d4a9497f2a38ea8c82, type: 3}
+  weaponName: The Chieff
+  body: {fileID: 8846883972554800147, guid: e27e8808fccc5364b8b4695fab1f0400, type: 3}
   barrel: {fileID: 2083059576523545304, guid: 4b919d4b0fc6a5043a4fa101b87b4583, type: 3}
-  handle: {fileID: 3053523151982885107, guid: 6b591f5c40079bd41ab8f827f07a95ac, type: 3}
+  handle: {fileID: 8785361456946695815, guid: c253388dd4b466e46845100f5f1718d1, type: 3}
