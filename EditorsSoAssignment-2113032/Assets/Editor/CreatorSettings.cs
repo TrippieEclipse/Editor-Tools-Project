@@ -10,16 +10,25 @@ public class CreatorSettings : EditorWindow
 
     public NewGunCreater ngc;
     public bool ngcNull = true;
+    public static Vector2 lastPos = Vector2.zero;
 
     [MenuItem("My Tools/Main Windows/Creator Settings")]
     public static void Init()
     {
-
+        
         CreatorSettings wnd = GetWindow<CreatorSettings>();
 
+        Rect currentPos = wnd.position;
+
+        currentPos.position = lastPos;
+
+
+        
         wnd.minSize = new Vector2(500, 500);
         wnd.maxSize = new Vector2(1920, 720);
     }
+
+
 
     private void Update()
     {
@@ -97,6 +106,10 @@ public class CreatorSettings : EditorWindow
                 soBarrel.ApplyModifiedProperties();
 
                 #region Buttons For Barrel
+
+
+
+
 
                 if (GUILayout.Button("Add To Barrel List"))
                 {
@@ -194,6 +207,11 @@ public class CreatorSettings : EditorWindow
         }
     }
 
+    
+
+   
+
+    
     public void CalltoCreatorWindow(CreatorSettings csPass) 
     {
         ActiveCreatorCall?.Invoke(csPass);

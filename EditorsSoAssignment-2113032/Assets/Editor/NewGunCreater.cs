@@ -26,7 +26,6 @@ public enum HandlePartsEnum
 
 
 
-
 public class NewGunCreater : EditorWindow
 {
     public CreatorSettings settingsWind = null;
@@ -49,8 +48,11 @@ public class NewGunCreater : EditorWindow
     public static void ShowMyWindow()
     {
         NewGunCreater wnd = GetWindow<NewGunCreater>();
-        wnd.titleContent = new GUIContent("WeaponSmith");
+
+
         
+
+        wnd.titleContent = new GUIContent("WeaponSmith");
 
         wnd.minSize = new Vector2(500, 500);
         wnd.maxSize = new Vector2(1920, 720);
@@ -62,6 +64,7 @@ public class NewGunCreater : EditorWindow
     {
         #region Weapon Part Selection
 
+        
 
         GUILayout.Label("Weapon Name");
         weaponName = EditorGUILayout.TextField("", weaponName);
@@ -117,8 +120,10 @@ public class NewGunCreater : EditorWindow
         }
         
     }
+
     
-    
+
+
 
     private void OnEnable()
     {
