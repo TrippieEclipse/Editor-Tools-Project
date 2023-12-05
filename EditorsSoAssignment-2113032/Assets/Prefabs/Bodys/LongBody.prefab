@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6372660775050497575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5494305918234305524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7891802911630760122}
+  m_Layer: 0
+  m_Name: ScopeConnectNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7891802911630760122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5494305918234305524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0103, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6372660775050497575}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7300796989462891717
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +127,7 @@ Transform:
   m_Children:
   - {fileID: 1295325955439045028}
   - {fileID: 4655828179714153623}
+  - {fileID: 7891802911630760122}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4894467052402726544
@@ -162,3 +194,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrelNode: {fileID: 1295325955439045028}
   handleNode: {fileID: 4655828179714153623}
+  scopeNode: {fileID: 7891802911630760122}

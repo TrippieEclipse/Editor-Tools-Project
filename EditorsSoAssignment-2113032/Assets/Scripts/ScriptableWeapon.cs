@@ -6,7 +6,9 @@ using UnityEngine;
 public class ScriptableWeapon : ScriptableObject
 {
     public string weaponName;
+    public bool scopeEnabled;
     public GameObject body;
     public GameObject barrel;
     public GameObject handle;
+    public GameObject scope;
 }

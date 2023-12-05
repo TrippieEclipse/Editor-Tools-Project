@@ -24,6 +24,12 @@ public enum HandlePartsEnum
     ShortHandle
 }
 
+public enum ScopePartsEnum
+{
+    CircleScope,
+    SquareScope
+}
+
 
 
 public class NewGunCreater : EditorWindow
@@ -33,16 +39,18 @@ public class NewGunCreater : EditorWindow
     public BodyPartsEnum   bodyEnumChoice;
     public BarrelPartsEnum barrelEnumChoice;
     public HandlePartsEnum handleEnumChoice;
+    public ScopePartsEnum  scopeEnumChoice;
 
 
     public List<GameObject> bodyList = new List<GameObject>();
     public List<GameObject> barrelList = new List<GameObject>();
     public List<GameObject> handleList = new List<GameObject>();
+    public List<GameObject> scopeList = new List<GameObject>();
 
 
     public string weaponName = "";
 
-    
+    public bool scopeEnabled;
 
     [MenuItem("My Tools/Main Windows/Weapon Maker")]
     public static void ShowMyWindow()
@@ -67,29 +75,41 @@ public class NewGunCreater : EditorWindow
         
 
         GUILayout.Label("Weapon Name");
-        weaponName = EditorGUILayout.TextField("", weaponName);
+        weaponName = EditorGUILayout.TextField("", weaponName, GUILayout.MinWidth(300), GUILayout.MaxWidth(400));
 
         EditorGUILayout.Space();
 
-        bodyEnumChoice = (BodyPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Body Part -->","Select The Body You Would Like For Your Weapon"), bodyEnumChoice, GUILayout.MinWidth(250),GUILayout.MaxWidth(300));
+        bodyEnumChoice = (BodyPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Body Part -->","Select The Body You Would Like For Your Weapon"), bodyEnumChoice, GUILayout.MinWidth(300),GUILayout.MaxWidth(400));
 
         EditorGUILayout.Space();
 
-        barrelEnumChoice = (BarrelPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Barrel Part -->", "Select The Barrel You Would Like For Your Weapon"), barrelEnumChoice, GUILayout.MinWidth(250), GUILayout.MaxWidth(300));
+        barrelEnumChoice = (BarrelPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Barrel Part -->", "Select The Barrel You Would Like For Your Weapon"), barrelEnumChoice, GUILayout.MinWidth(300), GUILayout.MaxWidth(400));
 
         EditorGUILayout.Space();
 
-        handleEnumChoice = (HandlePartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Handle Part -->", "Select The Handle You Would Like For Your Weapon"), handleEnumChoice, GUILayout.MinWidth(250), GUILayout.MaxWidth(300));
+        handleEnumChoice = (HandlePartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Handle Part -->", "Select The Handle You Would Like For Your Weapon"), handleEnumChoice, GUILayout.MinWidth(300), GUILayout.MaxWidth(400));
 
+        EditorGUILayout.Space();
 
-        if (GUILayout.Button("Create"))
+        scopeEnabled = EditorGUILayout.Toggle(new GUIContent("Enable sight on weapon -->", "Select if you want a scope or not"),scopeEnabled, GUILayout.MinWidth(300), GUILayout.MaxWidth(400));
+
+        switch (scopeEnabled) 
         {
-            CreateWeaponSO();
+            case (true):
+                scopeEnumChoice = (ScopePartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Scope Part -->", "Select The Scope You Would Like For Your Weapon"), scopeEnumChoice, GUILayout.MinWidth(300), GUILayout.MaxWidth(400));
+                if (GUILayout.Button("Create", GUILayout.MinWidth(300), GUILayout.MaxWidth(400)))
+                {
+                    CreateWeaponSO();
+                }
+                return;
+            case (false):
+                if (GUILayout.Button("Create", GUILayout.MinWidth(300), GUILayout.MaxWidth(400)))
+                {
+                    CreateWeaponSO();
+                }
+                return;
         }
 
-
-
-        EditorGUILayout.Space(40);
 
         #endregion
     }
@@ -105,6 +125,8 @@ public class NewGunCreater : EditorWindow
             newScriptableObject.body = bodyList[(int)bodyEnumChoice];
             newScriptableObject.barrel = barrelList[(int)barrelEnumChoice];
             newScriptableObject.handle = handleList[(int)handleEnumChoice];
+            newScriptableObject.scopeEnabled = scopeEnabled;
+            newScriptableObject.scope = scopeList[(int)scopeEnumChoice];
 
             string path = "Assets/WeaponSO/" + weaponName + ".asset";
 

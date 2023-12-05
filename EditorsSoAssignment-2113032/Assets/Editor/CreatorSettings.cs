@@ -22,7 +22,7 @@ public class CreatorSettings : EditorWindow
 
         currentPos.position = lastPos;
 
-
+        
         
         wnd.minSize = new Vector2(500, 500);
         wnd.maxSize = new Vector2(1920, 720);
@@ -190,6 +190,54 @@ public class CreatorSettings : EditorWindow
                 #endregion
 
                 EditorGUILayout.Space(5);
+
+                #region Scope List
+                ScriptableObject targetScope = ngc;
+                SerializedObject soScope = new SerializedObject(targetScope);
+                SerializedProperty stringsPropertyScope = soScope.FindProperty("scopeList");
+
+                EditorGUILayout.PropertyField(stringsPropertyScope, true);
+                soScope.ApplyModifiedProperties();
+
+                #region Buttons For Handle
+
+                if (GUILayout.Button("Add To Scope List"))
+                {
+
+                    foreach (GameObject obj in Selection.gameObjects)
+                    {
+                        if (!ngc.scopeList.Contains(obj) && obj.CompareTag("Scope"))
+                        {
+                            ngc.scopeList.Add(obj);
+                        }
+                        else if (ngc.scopeList.Contains(obj))
+                        {
+                            Debug.Log("Asset Already Added");
+                        }
+                        else if (!obj.CompareTag("Scope"))
+                        {
+                            Debug.Log("Wrong Asset Type");
+                        }
+
+
+                    }
+                }
+
+
+                if (GUILayout.Button("Clear Scope list"))
+                {
+                    ngc.scopeList.Clear();
+                }
+
+                EditorGUILayout.Space(5);
+                #endregion
+
+                #endregion
+
+                EditorGUILayout.Space(5);
+
+
+
 
                 #endregion
 

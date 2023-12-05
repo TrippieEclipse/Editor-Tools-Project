@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class GunSpawner : MonoBehaviour
 {
-    
-
-
     public ScriptableWeapon weaponSO;
 
     
@@ -31,6 +28,10 @@ public class GunSpawner : MonoBehaviour
         GameObject handleIns = Instantiate(weaponSO.handle, bodyNodes.handleNode.position, Quaternion.identity);
         handleIns.transform.parent = bodyNodes.handleNode;
 
-
+        if (weaponSO.scopeEnabled) 
+        {
+            GameObject scopeIns = Instantiate(weaponSO.scope, bodyNodes.scopeNode.position, Quaternion.identity);
+            scopeIns.transform.parent = bodyNodes.scopeNode;
+        }
     }
 }

@@ -6,4 +6,5 @@ public class BodyConectionNodes : MonoBehaviour
 {
     public Transform barrelNode;
     public Transform handleNode;
+    public Transform scopeNode;
 }
