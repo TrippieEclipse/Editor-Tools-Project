@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eadb33c9b92e394e8ad5d3f129b7bb8, type: 3}
-  m_Name: The Chieff
+  m_Name: LONG_cheese
   m_EditorClassIdentifier: 
-  weaponName: The Chieff
+  weaponName: LONG_cheese
+  scopeEnabled: 1
   body: {fileID: 8846883972554800147, guid: e27e8808fccc5364b8b4695fab1f0400, type: 3}
   barrel: {fileID: 2083059576523545304, guid: 4b919d4b0fc6a5043a4fa101b87b4583, type: 3}
   handle: {fileID: 8785361456946695815, guid: c253388dd4b466e46845100f5f1718d1, type: 3}
+  scope: {fileID: 3870872393673871179, guid: 9cbae08db26af184b9bb819638dabc63, type: 3}

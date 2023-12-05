@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eadb33c9b92e394e8ad5d3f129b7bb8, type: 3}
-  m_Name: Matt
+  m_Name: SHORT_cheese
   m_EditorClassIdentifier: 
-  weaponName: Matt
-  body: {fileID: 8846883972554800147, guid: e27e8808fccc5364b8b4695fab1f0400, type: 3}
+  weaponName: SHORT_cheese
+  scopeEnabled: 1
+  body: {fileID: 1282521334820513805, guid: c7ee2c5031b0e7d4a9497f2a38ea8c82, type: 3}
   barrel: {fileID: 2995065947126143410, guid: a2831f695bd921747927388fd8e9e625, type: 3}
-  handle: {fileID: 8785361456946695815, guid: c253388dd4b466e46845100f5f1718d1, type: 3}
+  handle: {fileID: 3053523151982885107, guid: 6b591f5c40079bd41ab8f827f07a95ac, type: 3}
+  scope: {fileID: 4983353157862828049, guid: 397016e8f4ba410498efb3b947361974, type: 3}
