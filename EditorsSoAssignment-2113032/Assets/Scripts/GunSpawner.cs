@@ -6,29 +6,22 @@ using UnityEngine;
 public class GunSpawner : MonoBehaviour
 {
     public ScriptableWeapon weaponSO;
-
-    
-
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             SpawnGun();
         }
     }
-
-    public void SpawnGun() 
+    public void SpawnGun()
     {
         GameObject bodyIns = Instantiate(weaponSO.body, Vector3.zero, Quaternion.identity);
         BodyConectionNodes bodyNodes = bodyIns.GetComponent<BodyConectionNodes>();
-
         GameObject barrelIns = Instantiate(weaponSO.barrel, bodyNodes.barrelNode.position, Quaternion.identity);
         barrelIns.transform.parent = bodyNodes.barrelNode;
-    
         GameObject handleIns = Instantiate(weaponSO.handle, bodyNodes.handleNode.position, Quaternion.identity);
         handleIns.transform.parent = bodyNodes.handleNode;
-
-        if (weaponSO.scopeEnabled) 
+        if (weaponSO.scopeEnabled)
         {
             GameObject scopeIns = Instantiate(weaponSO.scope, bodyNodes.scopeNode.position, Quaternion.identity);
             scopeIns.transform.parent = bodyNodes.scopeNode;

@@ -72,15 +72,24 @@ public class NewGunCreater : EditorWindow
 
         if (GUILayout.Button("Create", GUILayout.MinWidth(300), GUILayout.MaxWidth(550)))
         {
-            bool hasWeaponAlreadyBeenCreated = CreatedWeaponListCheck();
-            if (!hasWeaponAlreadyBeenCreated)
+            bool weaponPartsNotEmpty = ListIsNotEmptyCheck(barrelList, handleList, bodyList, scopeList);
+            if (weaponPartsNotEmpty) 
             {
-                CreateWeaponSO();
-                createdWeaponsList.Add(weaponName);
+                bool hasWeaponAlreadyBeenCreated = CreatedWeaponListCheck();
+                if (!hasWeaponAlreadyBeenCreated)
+                {
+                    CreateWeaponSO();
+                    createdWeaponsList.Add(weaponName);
+                }
+                else
+                {
+                    if (EditorUtility.DisplayDialog("WeaponOverride", "There is already a weapon with the name " + weaponName, "Override", "Cancel")) { CreateWeaponSO(); }
+                    else { return; }
+                }
             }
             else
             {
-                if (EditorUtility.DisplayDialog("WeaponOverride", "There is already a weapon with the name " + weaponName, "Override", "Cancel")) { CreateWeaponSO(); }
+                if (EditorUtility.DisplayDialog("WeaponListEmpty", "There is a List Missing a gameobject, Make sure all lists in the Creator settings are full with the right objects ", "Okay", "Cancel")) { return; }
                 else { return; }
             }
         }
@@ -109,6 +118,40 @@ public class NewGunCreater : EditorWindow
                 Debug.Log("No Items in Barrel list");
         }
     }
+
+    bool ListIsNotEmptyCheck(List<GameObject> barrelList,List<GameObject> handleList,List<GameObject> bodyList,List<GameObject> scopeList) 
+    {
+        foreach(GameObject obj in barrelList) 
+        { 
+            if(obj == null) 
+            {
+                return false;
+            }
+        }
+        foreach(GameObject obj in handleList) 
+        { 
+            if(obj == null) 
+            {
+                return false;
+            }
+        }
+        foreach(GameObject obj in bodyList) 
+        { 
+            if(obj == null) 
+            {
+                return false;
+            }
+        }
+        foreach(GameObject obj in scopeList) 
+        { 
+            if(obj == null) 
+            {
+                return false;
+            }
+        }
+        return true;    
+    }
+
     bool CreatedWeaponListCheck()
     {
         for (int i = 0; i < createdWeaponsList.Count; i++)
