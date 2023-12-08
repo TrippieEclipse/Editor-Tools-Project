@@ -52,20 +52,27 @@ public class NewGunCreater : EditorWindow
         wnd.minSize = new Vector2(500, 500);
         wnd.maxSize = new Vector2(1920, 720);
     }
+
+    /// <summary>
+    ///  ONGUI Summary
+    ///  
+    /// All UI and Main interactions Run through the OnGUI()
+    /// </summary>
+
     private void OnGUI()
     {
         #region Weapon Part Selection
         weaponName = EditorGUILayout.TextField("Weapon Name -->", weaponName, GUILayout.MinWidth(300), GUILayout.MaxWidth(550));
         EditorGUILayout.Space();
-        bodyEnumChoice = (BodyPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Body Part -->","Select The Body You Would Like For Your Weapon"), bodyEnumChoice, GUILayout.MinWidth(300),GUILayout.MaxWidth(550));
+        bodyEnumChoice = (BodyPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Body Part -->","Select The Body You Would Like For Your Weapon"), bodyEnumChoice, GUILayout.MinWidth(300),GUILayout.MaxWidth(550)); //Creates the DropDown For the weapon body selection
         EditorGUILayout.Space();
-        barrelEnumChoice = (BarrelPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Barrel Part -->", "Select The Barrel You Would Like For Your Weapon"), barrelEnumChoice, GUILayout.MinWidth(300), GUILayout.MaxWidth(550));
+        barrelEnumChoice = (BarrelPartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Barrel Part -->", "Select The Barrel You Would Like For Your Weapon"), barrelEnumChoice, GUILayout.MinWidth(300), GUILayout.MaxWidth(550)); //Creates the DropDown For the weapon barrel selection
         EditorGUILayout.Space();
-        handleEnumChoice = (HandlePartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Handle Part -->", "Select The Handle You Would Like For Your Weapon"), handleEnumChoice, GUILayout.MinWidth(300), GUILayout.MaxWidth(550));
+        handleEnumChoice = (HandlePartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Handle Part -->", "Select The Handle You Would Like For Your Weapon"), handleEnumChoice, GUILayout.MinWidth(300), GUILayout.MaxWidth(550)); //Creates the DropDown For the weapon handle selection
         EditorGUILayout.Space();
-        scopeEnabled = EditorGUILayout.Toggle(new GUIContent("Enable sight on weapon -->", "Select if you want a scope or not"),scopeEnabled, GUILayout.MinWidth(300), GUILayout.MaxWidth(550));
+        scopeEnabled = EditorGUILayout.Toggle(new GUIContent("Enable sight on weapon -->", "Select if you want a scope or not"),scopeEnabled, GUILayout.MinWidth(300), GUILayout.MaxWidth(550)); //Allows user to decide if they want a scope using a toggle box
 
-        if (scopeEnabled) 
+        if (scopeEnabled) //If the scope is enabled then the it Creates the DropDown For the scope body selection
         {
             scopeEnumChoice = (ScopePartsEnum)EditorGUILayout.EnumPopup(new GUIContent("Choose Scope Part -->", "Select The Scope You Would Like For Your Weapon"), scopeEnumChoice, GUILayout.MinWidth(300), GUILayout.MaxWidth(550));
         }
